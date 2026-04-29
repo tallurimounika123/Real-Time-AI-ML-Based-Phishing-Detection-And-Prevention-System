@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Phishing Detection</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>Real-Time AI Phishing Detector</h1>
+
+<form method="POST" enctype="multipart/form-data">
+
+<input type="text" name="url" placeholder="Enter URL">
+
+<p>OR Upload File</p>
+
+<input type="file" name="file">
+
+<br>
+
+<button type="submit">Scan</button>
+<button type="submit" name="history" value="1" class="history-btn">History</button>
+
+</form>
+
+{% if result %}
+<h2>{{ result }}</h2>
+<h3>Confidence: {{ confidence }}%</h3>
+{% endif %}
+
+{% if show_history and history %}
+<h2>Last 10 Scan History</h2>
+
+<table>
+    <tr>
+        <th>S.No</th>
+        <th>URL</th>
+        <th>Result</th>
+        <th>Confidence (%)</th>
+    </tr>
+
+    {% for item in history %}
+    <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ item.url }}</td>
+        <td>{{ item.result }}</td>
+        <td>{{ item.confidence }}%</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
