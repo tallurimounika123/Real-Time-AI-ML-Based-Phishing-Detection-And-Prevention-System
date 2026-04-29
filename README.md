@@ -9,7 +9,7 @@ A Python-based application to detect phishing URLs using basic feature analysis 
 ## Technologies Used
 - Python
 - Machine Learning (basic concepts)
-- Libraries: (mention if you used any like pandas, sklearn)
+- Libraries: pandas,scikit-learn
 
 ## How to Run
 1. Clone the repository
